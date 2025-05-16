@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 20px;
+    }
+
+    .accordion-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .accordion-column {
+      flex: 1;
+      min-width: 300px;
+      max-width: 48%;
+    }
+
+    .accordion {
+      background-color: #ffffff;
+      color: #193889;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: 1px solid #193889;
+      border-radius: 7px;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      transition: 0.4s;
+    }
+
+    .accordion:hover,
+    .accordion.active {
+      background-color: #193889;
+      color: #ffffff;
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: white;
+      overflow: hidden;
+      font-family: 'Open Sans', sans-serif;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      font-family: 'Open Sans', sans-serif;
+      margin-bottom: 10px;
+    }
+
+    .accordion-group {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .accordion-container {
+        flex-direction: column;
+      }
+
+      .accordion-column {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="accordion-container">
+  <!-- Left Column -->
+  <div class="accordion-column">
+    <h2>Account Questions</h2>
+
+    <div class="accordion-group">
+      <button class="accordion">I don't remember my password.</button>
+      <div class="panel">
+        <p>Click "Forgot your password?" to receive a reset email. Check your spam folder if it doesn't arrive. Contact support if needed: <a href="mailto:support@aealearningonline.org">support@aealearningonline.org</a>.</p>
+      </div>
+
+      <button class="accordion">Old email on account?</button>
+      <div class="panel">
+        <p>Contact your district first. If unavailable, submit a <a href="https://training.aealearningonline.org/help-ticket">support ticket</a> or email support with identifying details.</p>
+      </div>
+
+      <button class="accordion">Email or BoEE already in use?</button>
+      <div class="panel">
+        <p>This means you already have an account. Don’t create a duplicate. Contact support to recover your existing account.</p>
+      </div>
+
+      <button class="accordion">How do I create an account?</button>
+      <div class="panel">
+        <p>Most Iowa educators already have an account. If you're new, follow the instructions <a href="https://scribehow.com/shared/How_To_Register_for_AEA_Learning_Online__OXK94eLsRWOuhAwb4yKZ5Q">here</a>.</p>
+      </div>
+
+      <button class="accordion">Update district information?</button>
+      <div class="panel">
+        <p>Follow steps in this <a href="https://scribehow.com/shared/Update_Your_District_of_Employment__VVRkl5PmRNG2-bplK_o3Ng">guide</a> to update your employment info.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Column -->
+  <div class="accordion-column">
+    <h2>Course & Certificate Help</h2>
+
+    <div class="accordion-group">
+      <button class="accordion">I completed my training, but don’t see a certificate.</button>
+      <div class="panel">
+        <p>Make sure all required sections are marked complete. If the issue persists, contact support with course name and completion date.</p>
+      </div>
+
+      <button class="accordion">How do I print my certificate?</button>
+      <div class="panel">
+        <p>Go to your dashboard and find your course under completed. Click the certificate icon to download/print it.</p>
+      </div>
+
+      <button class="accordion">My certificate has the wrong name.</button>
+      <div class="panel">
+        <p>Update your profile with the correct name, then re-download your certificate.</p>
+      </div>
+
+      <button class="accordion">Can I retake a course?</button>
+      <div class="panel">
+        <p>Some courses allow retakes. Check the course page or contact support to confirm retake availability.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Accordion Script -->
+<script>
+document.querySelectorAll('.accordion').forEach(button => {
+  button.addEventListener("click", function () {
+    const allAccordions = this.closest('.accordion-column').querySelectorAll('.accordion');
+    allAccordions.forEach(btn => {
+      if (btn !== this) {
+        btn.classList.remove("active");
+        btn.nextElementSibling.style.display = "none";
+      }
+    });
+
+    this.classList.toggle("active");
+    const panel = this.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+</body>
+</html>
