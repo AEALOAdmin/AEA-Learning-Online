@@ -1,0 +1,6 @@
+{
+    "window.autoDetectColorScheme": true,
+    "workbench.editor.autoLockGroups": {
+        "imagePreview.previewEditor": true
+    }
+}
