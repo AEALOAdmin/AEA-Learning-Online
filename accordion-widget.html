@@ -32,7 +32,7 @@
       background-color: #ffffff;
       color: #193889;
       cursor: pointer;
-      padding: 18px;
+       padding: 18px 24px;
       width: 100%;
       border: 1px solid #193889;
       border-radius: 999px;
@@ -41,7 +41,19 @@
       font-size: 18px;
       font-family: 'Open Sans', sans-serif;
       transition: 0.4s;
-    }
+position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    } 
+
+.accordion-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
 
     .accordion:hover,
     .accordion.active {
@@ -49,6 +61,27 @@
       color: #ffffff;
     }
 
+.arrow {
+  width: 8px;
+  height: 8px;
+  border: solid #193889;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.accordion:hover .arrow {
+  border-color: #ffffff;
+}
+
+.accordion.active .arrow {
+  transform: rotate(-45deg); /* Rotates arrow downward */
+  border-color: #ffffff;     /* Arrow turns white when button is active */
+}
     .panel {
       padding: 0 18px;
       display: none;
@@ -87,7 +120,8 @@
     <h2>Account Questions</h2>
 
     <div class="accordion-group">
-      <button class="accordion">I don't remember my password.</button>
+      <button class="accordion"><b>I don't remember my password.</b><span class="arrow"></span></button>
+
       <div class="panel">
         <p>When logging in, click "Forgot your password?" You should receive a password reset email within a few minutes with instructions to reset your password. For security reasons, we cannot view or retrieve your previous password.
           <br>
@@ -98,7 +132,7 @@
           If you still need assistance, contact your district representative or email AEA Learning Online support at <a href="mailto:support@aealearningonline.org">support@aealearningonline.org</a>.</p>
       </div>
 <p></p>
-      <button class="accordion">My account has an old email and I can't access it anymore to reset my password. How do I change the email? </button>
+      <button class="accordion"><b>My account has an old email and I can't access it anymore to reset my password. How do I change the email?</b><span class="arrow"></span></button>
       <div class="panel">
         <p>You should reach out to your district contact first. If that is not possible, you can submit a support ticket by going <a href="https://training.aealearningonline.org/help-ticket>here</a> or by emailing <a href="mailto:support@aealearningonline.org">support@aealearningonline.org</a>.
         <br>
@@ -143,12 +177,16 @@ When you log into the AEA Learning Online system, navigate to your profile and t
 
   <!-- Right Column -->
   <div class="accordion-column">
-    <h2>Course & Certificate Help</h2>
+    <h2>Training Questions</h2>
 
     <div class="accordion-group">
-      <button class="accordion">I completed my training, but don’t see a certificate.</button>
+      <button class="accordion">When I try to register for a training, it says I have to pay. I though it was free. </button>
       <div class="panel">
-        <p>Make sure all required sections are marked complete. If the issue persists, contact support with course name and completion date.</p>
+        <p>When you see this message it means your account does not show you as an AEA or school district employee. Only AEA and school district employees are entitled to receive mandatory training at no cost. Follow the directions listed <a href="https://scribehow.com/shared/Update_Your_District_of_Employment__VVRkl5PmRNG2-bplK_o3Ng?referrer=documents">here</a> to update your district of employment.
+<br>
+<br>
+Please keep in mind that we do not offer refunds. We will not refund participants if they fail to update their district of employment prior to taking mandatory training.
+</p>
       </div>
 <p></p>
       <button class="accordion">How do I print my certificate?</button>
